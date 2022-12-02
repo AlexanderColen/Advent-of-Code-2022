@@ -1,11 +1,4 @@
-def parse_input() -> list:
-    puzzle_input = []
-
-    with open('input', 'r') as file:
-        for line in file:
-            puzzle_input.append(line.strip())
-
-    return puzzle_input
+import readInput
 
 
 def calculate_calories(instructions: list) -> list:
@@ -28,18 +21,18 @@ def calculate_calories(instructions: list) -> list:
     return all_calories
 
 
-def puzzle1(instructions: list):
+def puzzle1(instructions: list) -> int:
     all_calories = calculate_calories(instructions)
     return all_calories[0]
 
 
-def puzzle2(instructions: list):
+def puzzle2(instructions: list) -> int:
     all_calories = calculate_calories(instructions)
     return all_calories[0] + all_calories[1] + all_calories[2]
 
 
 if __name__ == '__main__':
-    # TODO: Replace with ReadInput.fetch_input(1)
-    parsed_instructions = parse_input()
+    # TODO: Replace with readInput.fetch_input(1)
+    parsed_instructions = readInput.read_input()
     print(f'Puzzle 1 solution: {puzzle1(instructions=parsed_instructions)}')
     print(f'Puzzle 2 solution: {puzzle2(instructions=parsed_instructions)}')

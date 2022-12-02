@@ -14,3 +14,13 @@ def fetch_input(day: int) -> list:
         lines.append(line.strip())
 
     return lines
+
+
+def read_input() -> list:
+    puzzle_input = []
+
+    with open('input', 'r') as file:
+        for line in file:
+            puzzle_input.append(line.strip())
+
+    return puzzle_input
