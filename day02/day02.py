@@ -36,7 +36,7 @@ def puzzle1(instructions: list) -> int:
     return total_score
 
 
-def puzzle2(instructions: list):
+def puzzle2(instructions: list) -> int:
     total_score = 0
     for match in instructions:
         opponent, outcome = match.split(' ')
