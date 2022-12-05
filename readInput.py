@@ -17,6 +17,11 @@ def fetch_input(day: int) -> list:
 
 
 def read_input() -> list:
+    """Read the 'input' file and return it as a list of strings stripped of any
+    whitespace characters.
+
+    Returns `list` A list of strings containing the input file's data.
+    """
     puzzle_input = []
 
     with open('input', 'r') as file:
