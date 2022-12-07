@@ -37,11 +37,6 @@ def build_filesystem(commands: list) -> list:
                             current_directory.name:
                         current_directory = directory
                         break
-        # Create new Directory.
-        elif command.startswith('dir') and directories:
-            directories.append(
-                Directory(name=command[4:], parent=current_directory)
-            )
         # Increment directory's size.
         elif re.match('\\d+', command) is not None:
             file_size = int(re.sub('[a-z\\.\\s]+', '', command))
@@ -53,19 +48,18 @@ def build_filesystem(commands: list) -> list:
             while parent_directory is not None:
                 parent_directory.size += file_size
                 parent_directory = parent_directory.parent
+        # Create new Directory.
+        else:
+            directories.append(
+                Directory(name=command[4:], parent=current_directory)
+            )
 
     return directories
 
 
 def puzzle1(directories: list) -> int:
     # Find the directory with size up to 100000
-    total_size = 0
-
-    for directory in directories:
-        if directory.size <= 100000:
-            total_size += directory.size
-
-    return total_size
+    return sum(directory.size for directory in directories if directory.size <= 100000)  # noqa
 
 
 def puzzle2(directories: list) -> int:
