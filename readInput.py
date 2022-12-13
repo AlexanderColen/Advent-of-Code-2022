@@ -16,7 +16,7 @@ def fetch_input(day: int) -> list:
     return lines
 
 
-def read_input() -> list:
+def read_input(file_name: str = 'input') -> list:
     """Read the 'input' file and return it as a list of strings stripped of any
     whitespace characters.
 
@@ -24,7 +24,7 @@ def read_input() -> list:
     """
     puzzle_input = []
 
-    with open('input', 'r') as file:
+    with open(file_name, 'r') as file:
         for line in file:
             puzzle_input.append(line.strip())
 
